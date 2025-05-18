@@ -21,8 +21,6 @@ class HabiterWindow(Adw.ApplicationWindow):
         self.start_button.connect("clicked", self.on_start_button_clicked)
         self.back_button.connect("clicked", self.on_back_button_clicked)
 
-
-        # Make sure the leaflet can access its children by name
         if self.home_page:
             self.home_page.set_name("home_page")
         if self.dashboard_page:
@@ -30,14 +28,12 @@ class HabiterWindow(Adw.ApplicationWindow):
 
     def on_start_button_clicked(self, button):
         if self.dashboard_page:
-            # Alternative way to navigate - use object reference instead of name
             self.leaflet.set_visible_child(self.dashboard_page)
         else:
             print("Error: dashboard_page not found!")
 
     def on_back_button_clicked(self, button):
         if self.home_page:
-            # Alternative way to navigate - use object reference instead of name
             self.leaflet.set_visible_child(self.home_page)
         else:
             print("Error: dashboard_page not found!")
