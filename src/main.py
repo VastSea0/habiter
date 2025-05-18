@@ -28,7 +28,7 @@ class HabiterApplication(Adw.Application):
         win.present()
 
     def on_about_action(self, *args):
-        about = Adw.AboutDialog(application_name='habiter',
+        about = Adw.AboutDialog(application_name='Habiter',
                                 application_icon='github.io.habiter',
                                 developer_name='Egehan KAHRAMAN',
                                 version='0.1.0',
@@ -46,7 +46,6 @@ class HabiterApplication(Adw.Application):
         self.add_action(action)
         if shortcuts:
             self.set_accels_for_action(f"app.{name}", shortcuts)
-
 
 def main(version):
     app = HabiterApplication()
