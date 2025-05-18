@@ -6,6 +6,7 @@ class HabiterWindow(Adw.ApplicationWindow):
 
     leaflet = Gtk.Template.Child()
     start_button = Gtk.Template.Child()
+    back_button = Gtk.Template.Child()
     home_page = Gtk.Template.Child()
     dashboard_page = Gtk.Template.Child()
 
@@ -18,6 +19,8 @@ class HabiterWindow(Adw.ApplicationWindow):
             return
 
         self.start_button.connect("clicked", self.on_start_button_clicked)
+        self.back_button.connect("clicked", self.on_back_button_clicked)
+
 
         # Make sure the leaflet can access its children by name
         if self.home_page:
@@ -31,4 +34,13 @@ class HabiterWindow(Adw.ApplicationWindow):
             self.leaflet.set_visible_child(self.dashboard_page)
         else:
             print("Error: dashboard_page not found!")
+
+    def on_back_button_clicked(self, button):
+        if self.home_page:
+            # Alternative way to navigate - use object reference instead of name
+            self.leaflet.set_visible_child(self.home_page)
+        else:
+            print("Error: dashboard_page not found!")
+
+
 
