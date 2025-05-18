@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=habiter
+Exec=habiter
+Icon=github.io.habiter
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

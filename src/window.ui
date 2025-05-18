@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.96.1 -->
+<interface>
+  <!-- interface-name window.ui -->
+  <requires lib="Adw" version="1.0"/>
+  <requires lib="gio" version="2.0"/>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.7"/>
+  <template class="HabiterWindow" parent="AdwApplicationWindow">
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="menu-model">primary_menu</property>
+                <property name="primary">True</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwLeaflet" id="leaflet">
+            <property name="can-navigate-back">true</property>
+            <property name="can-unfold">false</property>
+            <property name="homogeneous">true</property>
+            <property name="visible-child-name">home_page</property>
+            <child>
+              <object class="AdwStatusPage" id="home_page">
+                <property name="description">Let's track some habit!</property>
+                <property name="icon-name">calendar-month-symbolic</property>
+                <property name="title">Welcome</property>
+                <child>
+                  <object class="AdwClamp">
+                    <property name="maximum-size">250</property>
+                    <child>
+                      <object class="GtkButton" id="start_button">
+                        <property name="icon-name">go-next-symbolic</property>
+                        <property name="label">Let's get started! 😁</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwStatusPage" id="dashboard_page">
+                <child>
+                  <object class="GtkBox">
+                    <property name="margin-bottom">24</property>
+                    <property name="margin-end">24</property>
+                    <property name="margin-start">24</property>
+                    <property name="margin-top">23</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">13</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="label">Your Habits</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                          <attribute name="scale" value="1.5"/>
+                        </attributes>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label">Drink 2L water</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label">Read 30 minutes</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton">
+                        <property name="label">Go for a walk</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="halign">start</property>
+                        <property name="icon-name">list-add-symbolic</property>
+                        <property name="label">+ Add New Habit</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+    <property name="default-height">600</property>
+    <property name="default-width">800</property>
+    <property name="title" translatable="yes">Habiter</property>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="action">app.preferences</attribute>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+      </item>
+      <item>
+        <attribute name="action">win.show-help-overlay</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name="action">app.about</attribute>
+        <attribute name="label" translatable="yes">_About Habiter</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

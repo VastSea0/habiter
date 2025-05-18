@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/github.io.habiter.desktop.in
+data/github.io.habiter.metainfo.xml.in
+data/github.io.habiter.gschema.xml
+src/main.py
+src/window.py
+src/window.ui
