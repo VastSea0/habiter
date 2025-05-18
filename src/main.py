@@ -30,7 +30,7 @@ class HabiterApplication(Adw.Application):
     def on_about_action(self, *args):
         about = Adw.AboutDialog(application_name='habiter',
                                 application_icon='github.io.habiter',
-                                developer_name='Egehan',
+                                developer_name='Egehan KAHRAMAN',
                                 version='0.1.0',
                                 developers=['Egehan'],
                                 copyright='© 2025 Egehan')
