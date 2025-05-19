@@ -71,35 +71,19 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton">
+                          <object class="GtkButton" id="add_button">
                             <property name="halign">start</property>
                             <property name="icon-name">list-add-symbolic</property>
                             <property name="label">+ Add New Habit</property>
                           </object>
                         </child>
+                        <child>
+                          <object class="GtkEntry" id="task_entry"/>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkBox">
-                        <property name="margin-end">50</property>
-                        <property name="margin-start">50</property>
-                        <property name="orientation">vertical</property>
-                        <property name="spacing">13</property>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="halign">start</property>
-                            <property name="label">Your Habits</property>
-                            <attributes>
-                              <attribute name="weight" value="bold"/>
-                              <attribute name="scale" value="1.5"/>
-                            </attributes>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkCheckButton">
-                            <property name="label">Read 30 minutes</property>
-                          </object>
-                        </child>
+                      <object class="GtkListBox" id="habit_list">
                         <child>
                           <object class="GtkCheckButton">
                             <property name="label">Drink 2L water</property>
