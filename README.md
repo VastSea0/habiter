@@ -1,5 +1,9 @@
-# habiter
+# Habiter
 
-A description of this project.
+Habiter is a habit tracker...
 
+---
 
+## ScreenShots.
+![ScreenShot](./image.png)
+![ScreenShot](./image-1.png)
