@@ -1,5 +1,5 @@
 #window.py
-from gi.repository import Gtk, Adw
+from gi.repository import Gtk, Adw, GLib
 
 @Gtk.Template(resource_path='/github/io/habiter/window.ui')
 class HabiterWindow(Adw.ApplicationWindow):
@@ -14,15 +14,9 @@ class HabiterWindow(Adw.ApplicationWindow):
     add_button = Gtk.Template.Child()
     task_entry = Gtk.Template.Child()
 
-
-
-
-
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        # Verify widgets were properly initialized
         if not self.start_button:
             print("Error: start_button not found in template!")
             return
@@ -42,8 +36,12 @@ class HabiterWindow(Adw.ApplicationWindow):
         text = self.task_entry.get_text()
         if text.strip():
             new_check = Gtk.CheckButton(label=text)
+            new_check.get_style_context().add_class("check-button-animated")
             self.habit_list.append(new_check)
-            self.task_entry.set_text("")  # giriş alanını temizle
+            new_check.show()
+
+            GLib.timeout_add(50, lambda: (new_check.get_style_context().add_class("appear"), False)[1])
+            self.task_entry.set_text("")
 
 
     def on_start_button_clicked(self, button):

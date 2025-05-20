@@ -2,11 +2,11 @@
 
 import sys
 import gi
-
+import os
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Gio, Adw
+from gi.repository import Gtk, Gio, Adw, Gdk, GLib
 from .window import HabiterWindow
 
 
@@ -20,6 +20,8 @@ class HabiterApplication(Adw.Application):
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
+        self.load_css()
+
 
     def do_activate(self):
         win = self.props.active_window
@@ -40,6 +42,18 @@ class HabiterApplication(Adw.Application):
     def on_preferences_action(self, widget, _):
         print('app.preferences action activated')
 
+    def load_css(self):
+        css_provider = Gtk.CssProvider()
+
+        # CSS dosyasının doğru yolunu bul
+        css_path = os.path.join(os.path.dirname(__file__), "style.css")
+        css_provider.load_from_path(css_path)
+
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            css_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
     def create_action(self, name, callback, shortcuts=None):
         action = Gio.SimpleAction.new(name, None)
         action.connect("activate", callback)

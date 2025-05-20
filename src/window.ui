@@ -71,14 +71,17 @@
                           </object>
                         </child>
                         <child>
+                          <object class="GtkEntry" id="task_entry">
+                            <property name="placeholder-text">Text your habit</property>
+                            <property name="primary-icon-name">emoji-nature-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
                           <object class="GtkButton" id="add_button">
                             <property name="halign">start</property>
                             <property name="icon-name">list-add-symbolic</property>
                             <property name="label">+ Add New Habit</property>
                           </object>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="task_entry"/>
                         </child>
                       </object>
                     </child>
